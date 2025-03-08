@@ -12,53 +12,14 @@ import java.math.BigDecimal;
 
 public class Nambary {
     
-    public String[] modes;
-    
-    public String defaultMode;
-    
-    public Nambary(){
-
-        this.modes = this.getModes();
-        
-        this.defaultMode = this.getDefaultMode();
-    
-    }
-    
-    private String[] getModes(){
-    
-        String[] modes = {
-                        "simple","standard","scientific",
-                        "converter","simple interest","compound interest"
-                        };
-        
-        return modes;
-        
-    }
-    
-    private String getDefaultMode(){
-    
-        int total = this.modes.length;
-        
-        String defaultMode = "simple";
-        
-        if(total > 0){
-        
-            defaultMode = this.modes[0];
-            
-        }
-        
-        return defaultMode;
-        
-    }
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        SimpleGUI simple = new SimpleGUI();
+        ModeSwitcher switcher = new ModeSwitcher();
         
-        simple.setVisible(true);
+        switcher.switchMode("simple");
         
         /*NambarySimple namSimple = new NambarySimple();
         
