@@ -31,6 +31,8 @@ public class Nambary {
         
         namSimple.cumulate(new BigDecimal(1),"");
         
+        namSimple.cumulate(new BigDecimal(5),"subtract");
+        
         System.out.println(namSimple.cumulative.toString());
         
         System.out.println(namSimple.operation);

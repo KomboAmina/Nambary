@@ -21,7 +21,8 @@ public class NambaryOperations {
     private String[] getOperations(){
     
         String[] opers = {
-            "add","addition","plus"
+            "add","addition","plus",
+            "subtract","subtraction","minus"
             };
         
         return opers;
