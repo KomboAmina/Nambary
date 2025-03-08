@@ -90,6 +90,22 @@ public class NambarySimple {
                 cumulation = this.cumulative.multiply(newValue);
                 
             break;
+            
+            case "divide":
+                
+                if(!newValue.equals(0)){
+                
+                    cumulation = this.cumulative.divide(newValue);
+                    
+                }
+                
+                else{
+                
+                    cumulation = this.cumulative;
+                    
+                }
+                
+            break;
         
             default:
                 

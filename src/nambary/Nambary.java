@@ -35,6 +35,8 @@ public class Nambary {
         
         namSimple.cumulate(new BigDecimal(4),"multiply");
         
+        namSimple.cumulate(new BigDecimal(16),"divide");
+        
         System.out.println(namSimple.cumulative.toString());
         
         System.out.println(namSimple.operation);

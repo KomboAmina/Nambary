@@ -23,7 +23,8 @@ public class NambaryOperations {
         String[] opers = {
             "add","addition","plus",
             "subtract","subtraction","minus",
-            "multiply","multiplication","times"
+            "multiply","multiplication","times",
+            "divide","division"
             };
         
         return opers;
