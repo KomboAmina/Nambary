@@ -21,7 +21,15 @@ public class Nambary {
         
         System.out.println(namSimple.cumulative.toString());
         
-        namSimple.cumulate(new BigDecimal(5.4),"add");
+        namSimple.cumulate(new BigDecimal(0.0),"add");
+        
+        namSimple.cumulate(new BigDecimal(1),"add");
+        
+        namSimple.cumulate(new BigDecimal(15.75),"add");
+        
+        namSimple.cumulate(new BigDecimal(3.25),"add");
+        
+        namSimple.cumulate(new BigDecimal(1),"");
         
         System.out.println(namSimple.cumulative.toString());
         

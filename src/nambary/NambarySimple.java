@@ -18,6 +18,8 @@ public class NambarySimple {
     
     private static final int DEFAULTSIGNVALUE = 1;
     
+    public NambaryOperations nambaryOperations = new NambaryOperations();
+    
     public BigDecimal cumulative = this.DEFAULTCUMULATIVE;
     
     public String operation = this.DEFAULTOPERATION;
@@ -53,12 +55,39 @@ public class NambarySimple {
     }
     
     public void cumulate(BigDecimal newValue, String newOperation){
-    
-        if(!newOperation.equals(this.operation)){
+        
+        if(!newOperation.equals(this.operation) && 
+                this.nambaryOperations.isValidOperation(newOperation)){
         
             this.operation = newOperation;
             
         }
+        
+        this.cumulative = this.performCumulation(newValue);
+        
+    }
+    
+    private BigDecimal performCumulation(BigDecimal newValue){
+        
+        BigDecimal cumulation;
+    
+        switch(this.operation){
+            
+            case "add":
+                
+                cumulation = this.cumulative.add(newValue);
+                
+            break;
+        
+            default:
+                
+                cumulation = newValue;
+                
+            break;
+            
+        }
+        
+        return cumulation;
         
     }
     
