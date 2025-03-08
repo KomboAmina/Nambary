@@ -154,9 +154,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="btnClear" min="-2" pref="76" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtOutput" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -286,11 +286,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="7"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn7ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn4">
           <Properties>
             <Property name="text" type="java.lang.String" value="4"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn4ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn1">
           <Properties>
@@ -304,11 +310,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="8"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn8ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn5">
           <Properties>
             <Property name="text" type="java.lang.String" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn5ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn2">
           <Properties>
@@ -330,11 +342,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="9"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn9ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn6">
           <Properties>
             <Property name="text" type="java.lang.String" value="6"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn6ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnPerform">
           <Properties>

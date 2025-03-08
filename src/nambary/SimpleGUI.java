@@ -13,6 +13,8 @@ import java.math.BigDecimal;
 public class SimpleGUI extends javax.swing.JFrame {
     
     public String input = "0";
+    
+    private NambarySimple simpleCalc = new NambarySimple();
 
     /**
      * Creates new form SimpleGUI
@@ -93,9 +95,9 @@ public class SimpleGUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtOutput)
                 .addContainerGap())
         );
@@ -119,8 +121,18 @@ public class SimpleGUI extends javax.swing.JFrame {
         });
 
         btn7.setText("7");
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
 
         btn4.setText("4");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         btn1.setText("1");
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -130,8 +142,18 @@ public class SimpleGUI extends javax.swing.JFrame {
         });
 
         btn8.setText("8");
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn5.setText("5");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn2.setText("2");
         btn2.addActionListener(new java.awt.event.ActionListener() {
@@ -148,8 +170,18 @@ public class SimpleGUI extends javax.swing.JFrame {
         });
 
         btn9.setText("9");
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btn6.setText("6");
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
 
         btnPerform.setText("=");
         btnPerform.addActionListener(new java.awt.event.ActionListener() {
@@ -362,20 +394,43 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_mnCompoundInterestActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        // TODO add your handling code here:
+        this.input = this.input.concat("1");
+        txtOutput.setText(new BigDecimal(this.input).toString());
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-        this.input = this.input.concat("0");
-        txtOutput.setText(this.input);
+        
+        String currentValue = txtOutput.getText();
+        
+        if(!currentValue.equals("0")){
+        
+            this.input = this.input.concat("0");
+            
+        }
+        
+        txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        // TODO add your handling code here:
+        this.input = this.input.concat("2");
+        txtOutput.setText(new BigDecimal(this.input).toString());
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecimalActionPerformed
-        // TODO add your handling code here:
+        
+        String currentValue = txtOutput.getText();
+        
+        int index = currentValue.indexOf(".");
+        
+        if(index == -1){
+        
+            this.input = this.input.concat(".");
+            
+        }
+        
+        txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btnDecimalActionPerformed
 
     private void btnPerformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerformActionPerformed
@@ -383,7 +438,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPerformActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        // TODO add your handling code here:
+        this.input = this.input.concat("3");
+        txtOutput.setText(new BigDecimal(this.input).toString());
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void txtOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOutputActionPerformed
@@ -394,7 +450,7 @@ public class SimpleGUI extends javax.swing.JFrame {
     
         this.input = "0";
         
-        txtOutput.setText(this.input);
+        txtOutput.setText(new BigDecimal(this.input).toString());
         
     }
     
@@ -409,6 +465,36 @@ public class SimpleGUI extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_mnExitActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+       this.input = this.input.concat("4");
+       txtOutput.setText(new BigDecimal(this.input).toString());
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        this.input = this.input.concat("5");
+        txtOutput.setText(new BigDecimal(this.input).toString());
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        this.input = this.input.concat("6");
+        txtOutput.setText(new BigDecimal(this.input).toString());
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        this.input = this.input.concat("7");
+        txtOutput.setText(new BigDecimal(this.input).toString());
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        this.input = this.input.concat("8");
+        txtOutput.setText(new BigDecimal(this.input).toString());
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        this.input = this.input.concat("9");
+        txtOutput.setText(new BigDecimal(this.input).toString());
+    }//GEN-LAST:event_btn9ActionPerformed
 
     /**
      * @param args the command line arguments
