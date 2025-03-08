@@ -84,6 +84,12 @@ public class NambarySimple {
                 cumulation = this.cumulative.subtract(newValue);
                 
             break;
+            
+            case "multiply":
+                
+                cumulation = this.cumulative.multiply(newValue);
+                
+            break;
         
             default:
                 

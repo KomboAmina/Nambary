@@ -33,6 +33,8 @@ public class Nambary {
         
         namSimple.cumulate(new BigDecimal(5),"subtract");
         
+        namSimple.cumulate(new BigDecimal(4),"multiply");
+        
         System.out.println(namSimple.cumulative.toString());
         
         System.out.println(namSimple.operation);
