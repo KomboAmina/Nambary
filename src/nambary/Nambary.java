@@ -11,13 +11,56 @@ package nambary;
 import java.math.BigDecimal;
 
 public class Nambary {
+    
+    public String[] modes;
+    
+    public String defaultMode;
+    
+    public Nambary(){
+
+        this.modes = this.getModes();
+        
+        this.defaultMode = this.getDefaultMode();
+    
+    }
+    
+    private String[] getModes(){
+    
+        String[] modes = {
+                        "simple","standard","scientific",
+                        "converter","simple interest","compound interest"
+                        };
+        
+        return modes;
+        
+    }
+    
+    private String getDefaultMode(){
+    
+        int total = this.modes.length;
+        
+        String defaultMode = "simple";
+        
+        if(total > 0){
+        
+            defaultMode = this.modes[0];
+            
+        }
+        
+        return defaultMode;
+        
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        NambarySimple namSimple = new NambarySimple();
+        SimpleGUI simple = new SimpleGUI();
+        
+        simple.setVisible(true);
+        
+        /*NambarySimple namSimple = new NambarySimple();
         
         System.out.println(namSimple.cumulative.toString());
         
@@ -39,7 +82,7 @@ public class Nambary {
         
         System.out.println(namSimple.cumulative.toString());
         
-        System.out.println(namSimple.operation);
+        System.out.println(namSimple.operation);*/
         
     }
     
