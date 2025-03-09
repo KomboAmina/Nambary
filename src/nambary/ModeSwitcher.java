@@ -26,7 +26,7 @@ public class ModeSwitcher {
         String[] modes = {
                         "simple","standard","scientific",
                         "converter","simple interest","compound interest",
-                        "about","soon"
+                        "about"
                         };
         
         return modes;
@@ -53,7 +53,7 @@ public class ModeSwitcher {
                 
             break;
             
-            case "about":
+            default:
                 
                 AboutGUI aboutGUI = new AboutGUI();
                 
@@ -64,20 +64,6 @@ public class ModeSwitcher {
                 aboutGUI.setLocation((int)newX, (int)newY);
                 
                 aboutGUI.setVisible(true);
-                
-            break;
-            
-            default:
-                
-                SoonFrame soonFrame = new SoonFrame();
-                
-                newX = this.sizer.getXPosition(soonFrame.getWidth());
-        
-                newY = this.sizer.getYPosition(soonFrame.getHeight());
-
-                soonFrame.setLocation((int)newX, (int)newY);
-                
-                soonFrame.setVisible(true);
                 
             break;
             

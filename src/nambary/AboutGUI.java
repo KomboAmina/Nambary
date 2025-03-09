@@ -4,6 +4,11 @@
  */
 package nambary;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  *
  * @author Amina Kombo <github.com/KomboAmina>
@@ -27,7 +32,7 @@ public class AboutGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblHyperlink = new javax.swing.JLabel();
         btnClose = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -45,11 +50,17 @@ public class AboutGUI extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setForeground(new java.awt.Color(222, 185, 146));
 
-        jLabel1.setBackground(new java.awt.Color(5, 22, 34));
-        jLabel1.setFont(new java.awt.Font("Martian Mono", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(222, 185, 146));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("GitHub: https://github.com/KomboAmina/Nambary");
+        lblHyperlink.setBackground(new java.awt.Color(5, 22, 34));
+        lblHyperlink.setFont(new java.awt.Font("Martian Mono", 1, 12)); // NOI18N
+        lblHyperlink.setForeground(new java.awt.Color(222, 185, 146));
+        lblHyperlink.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHyperlink.setText("GitHub: https://github.com/KomboAmina/Nambary");
+        lblHyperlink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblHyperlink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHyperlinkMouseClicked(evt);
+            }
+        });
 
         btnClose.setBackground(new java.awt.Color(5, 22, 34));
         btnClose.setFont(new java.awt.Font("Martian Mono", 0, 16)); // NOI18N
@@ -76,7 +87,7 @@ public class AboutGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblHyperlink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(136, Short.MAX_VALUE)
@@ -92,7 +103,7 @@ public class AboutGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblHyperlink, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(63, Short.MAX_VALUE))
@@ -138,6 +149,22 @@ public class AboutGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCloseActionPerformed
 
+    private void lblHyperlinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHyperlinkMouseClicked
+        
+         try{
+         
+            Desktop.getDesktop().browse(new URI("https://github.com/KomboAmina/Nambary"));
+
+         }
+         
+         catch (IOException | URISyntaxException e1) {
+            
+            e1.printStackTrace();
+            
+        }
+        
+    }//GEN-LAST:event_lblHyperlinkMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -175,8 +202,8 @@ public class AboutGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblHyperlink;
     // End of variables declaration//GEN-END:variables
 }
