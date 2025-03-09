@@ -23,8 +23,6 @@ public class SimpleGUI extends javax.swing.JFrame {
     
     private String activeOperation = "";
     
-    ScreenSizer sizer = new ScreenSizer();
-    
     /**
      * Creates new form SimpleGUI
      */
@@ -746,7 +744,7 @@ public class SimpleGUI extends javax.swing.JFrame {
         
         ModeSwitcher switcher = new ModeSwitcher();
         
-        switcher.switchMode("soon");
+        switcher.switchMode("about");
         
         this.dispose();
         

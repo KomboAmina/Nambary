@@ -53,6 +53,20 @@ public class ModeSwitcher {
                 
             break;
             
+            case "about":
+                
+                AboutGUI aboutGUI = new AboutGUI();
+                
+                newX = this.sizer.getXPosition(aboutGUI.getWidth());
+        
+                newY = this.sizer.getYPosition(aboutGUI.getHeight());
+
+                aboutGUI.setLocation((int)newX, (int)newY);
+                
+                aboutGUI.setVisible(true);
+                
+            break;
+            
             default:
                 
                 SoonFrame soonFrame = new SoonFrame();
