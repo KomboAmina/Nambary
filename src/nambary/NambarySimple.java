@@ -73,9 +73,9 @@ public class NambarySimple {
     
         switch(this.operation){
             
-            case "add":
+            case "add": case "addition": case "plus":
                 
-                cumulation = this.cumulative.add(newValue);
+                cumulation = newValue.add(this.cumulative);
                 
             break;
             

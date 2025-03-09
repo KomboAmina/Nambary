@@ -23,7 +23,8 @@ public class ModeSwitcher {
     
         String[] modes = {
                         "simple","standard","scientific",
-                        "converter","simple interest","compound interest"
+                        "converter","simple interest","compound interest",
+                        "about"
                         };
         
         return modes;

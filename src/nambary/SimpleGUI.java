@@ -15,12 +15,17 @@ public class SimpleGUI extends javax.swing.JFrame {
     public String input = "0";
     
     private NambarySimple simpleCalc = new NambarySimple();
-
+    
+    private NambaryOperations operations = new NambaryOperations();
+    
+    private String activeOperation = "";
     /**
      * Creates new form SimpleGUI
      */
     public SimpleGUI() {
+        
         initComponents();
+        
     }
 
     /**
@@ -33,7 +38,7 @@ public class SimpleGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnClear = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         txtOutput = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btn0 = new javax.swing.JButton();
@@ -75,13 +80,15 @@ public class SimpleGUI extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnClear.setText("C");
-        btnClear.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("DEL");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
+        txtOutput.setEditable(false);
+        txtOutput.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         txtOutput.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         txtOutput.setText("0");
         txtOutput.addActionListener(new java.awt.event.ActionListener() {
@@ -96,18 +103,18 @@ public class SimpleGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtOutput)
-                .addContainerGap())
+                .addComponent(txtOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                    .addComponent(txtOutput))
+                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -262,6 +269,11 @@ public class SimpleGUI extends javax.swing.JFrame {
         btnDivide.setText("/");
 
         btnAdd.setText("+");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnSubtract.setText("-");
 
@@ -394,8 +406,11 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_mnCompoundInterestActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        
         this.input = this.input.concat("1");
+        
         txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
@@ -413,33 +428,81 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        
         this.input = this.input.concat("2");
+        
         txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecimalActionPerformed
         
         String currentValue = txtOutput.getText();
         
-        int index = currentValue.indexOf(".");
+        if(currentValue.equals("0") || currentValue.equals("0.")){
         
-        if(index == -1){
+            this.input = "0.";
+            
+            txtOutput.setText(input);
+            
+        }
+       
+        else{
         
-            this.input = this.input.concat(".");
+            int index = currentValue.indexOf(".");
+            
+            if(index == -1){
+            
+                this.input = this.input.concat(".");
+                
+                txtOutput.setText(new BigDecimal(this.input).toString());
+                
+            }
             
         }
         
-        txtOutput.setText(new BigDecimal(this.input).toString());
+        /*
+        
+        if(index == -1){
+            
+            if(currentValue.equals("0")){
+            
+                this.input= this.input.concat("0");
+                
+            }
+        
+            this.input = this.input.concat(".");
+            
+       
+            
+        }
+        
+        txtOutput.setText(new BigDecimal(this.input).toString());*/
         
     }//GEN-LAST:event_btnDecimalActionPerformed
 
     private void btnPerformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerformActionPerformed
-        // TODO add your handling code here:
+        
+        if(!this.activeOperation.isEmpty()){
+        
+            this.simpleCalc.cumulate(new BigDecimal(txtOutput.getText()),this.activeOperation);
+            
+            this.activeOperation = "";
+            
+            txtOutput.setText(simpleCalc.cumulative.toString());
+        
+            this.input = "0";
+            
+        }
+        
     }//GEN-LAST:event_btnPerformActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        
         this.input = this.input.concat("3");
+        
         txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void txtOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOutputActionPerformed
@@ -452,13 +515,15 @@ public class SimpleGUI extends javax.swing.JFrame {
         
         txtOutput.setText(new BigDecimal(this.input).toString());
         
+        this.simpleCalc.clearAll();
+        
     }
     
-    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         
         this.resetForm();
         
-    }//GEN-LAST:event_btnClearActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void mnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExitActionPerformed
 
@@ -467,35 +532,66 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_mnExitActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-       this.input = this.input.concat("4");
-       txtOutput.setText(new BigDecimal(this.input).toString());
+       
+        this.input = this.input.concat("4");
+       
+        txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        
         this.input = this.input.concat("5");
+        
         txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        
         this.input = this.input.concat("6");
+        
         txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        
         this.input = this.input.concat("7");
+        
         txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        
         this.input = this.input.concat("8");
+        
         txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        
         this.input = this.input.concat("9");
+        
         txtOutput.setText(new BigDecimal(this.input).toString());
+        
     }//GEN-LAST:event_btn9ActionPerformed
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        
+        this.activeOperation = "add";
+        
+        this.simpleCalc.cumulative = new BigDecimal(txtOutput.getText());
+        
+        txtOutput.setText("0");
+        
+        this.input = "0";
+        
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -529,6 +625,8 @@ public class SimpleGUI extends javax.swing.JFrame {
                 new SimpleGUI().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -543,8 +641,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDecimal;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDivide;
     private javax.swing.JButton btnMultiply;
     private javax.swing.JButton btnPerform;
