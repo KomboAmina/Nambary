@@ -8,6 +8,7 @@ package nambary;
  *
  * @author Amina Kombo <github.com/KomboAmina>
  */
+
 import java.math.BigDecimal;
 
 public class Nambary {
