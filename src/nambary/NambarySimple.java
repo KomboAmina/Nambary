@@ -122,11 +122,9 @@ public class NambarySimple {
                 
                 else{
                     
-                    Long longzero = new Long("0");
-                    
-                    BigDecimal zero = BigDecimal.valueOf(longzero);
+                    BigDecimal zero = BigDecimal.ZERO;
                 
-                    if(newValue.equals(zero)){
+                    if(zero.compareTo(newValue) == 0){
                     
                         cumulation = newValue;
                         
