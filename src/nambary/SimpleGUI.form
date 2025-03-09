@@ -40,6 +40,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Converters"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnConvertersActionPerformed"/>
+              </Events>
             </Menu>
             <Menu class="javax.swing.JMenu" name="mnFinancial">
               <Properties>
@@ -68,6 +71,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="About"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnAboutActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnExit">
               <Properties>

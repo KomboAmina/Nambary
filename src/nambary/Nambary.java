@@ -21,30 +21,6 @@ public class Nambary {
         
         switcher.switchMode("simple");
         
-        /*NambarySimple namSimple = new NambarySimple();
-        
-        System.out.println(namSimple.cumulative.toString());
-        
-        namSimple.cumulate(new BigDecimal(0.0),"add");
-        
-        namSimple.cumulate(new BigDecimal(1),"add");
-        
-        namSimple.cumulate(new BigDecimal(15.75),"add");
-        
-        namSimple.cumulate(new BigDecimal(3.25),"add");
-        
-        namSimple.cumulate(new BigDecimal(1),"");
-        
-        namSimple.cumulate(new BigDecimal(5),"subtract");
-        
-        namSimple.cumulate(new BigDecimal(4),"multiply");
-        
-        namSimple.cumulate(new BigDecimal(16),"divide");
-        
-        System.out.println(namSimple.cumulative.toString());
-        
-        System.out.println(namSimple.operation);*/
-        
     }
     
 }

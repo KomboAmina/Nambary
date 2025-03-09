@@ -24,7 +24,7 @@ public class ModeSwitcher {
         String[] modes = {
                         "simple","standard","scientific",
                         "converter","simple interest","compound interest",
-                        "about"
+                        "about","soon"
                         };
         
         return modes;
@@ -35,11 +35,19 @@ public class ModeSwitcher {
     
         switch(newMode){
         
-            default:
+            case "simple":
                 
                 SimpleGUI simpleGUI = new SimpleGUI();
                 
                 simpleGUI.setVisible(true);
+                
+            break;
+            
+            default:
+                
+                SoonFrame soonFrame = new SoonFrame();
+                
+                soonFrame.setVisible(true);
                 
             break;
             

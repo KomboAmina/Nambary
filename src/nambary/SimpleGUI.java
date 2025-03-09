@@ -342,6 +342,11 @@ public class SimpleGUI extends javax.swing.JFrame {
         jMenu1.add(mnScientific);
 
         mnConverters.setText("Converters");
+        mnConverters.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnConvertersActionPerformed(evt);
+            }
+        });
         jMenu1.add(mnConverters);
 
         mnFinancial.setText("Financial");
@@ -365,6 +370,11 @@ public class SimpleGUI extends javax.swing.JFrame {
         jMenu1.add(mnFinancial);
 
         mnAbout.setText("About");
+        mnAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnAboutActionPerformed(evt);
+            }
+        });
         jMenu1.add(mnAbout);
 
         mnExit.setText("Exit");
@@ -409,19 +419,43 @@ public class SimpleGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnStandardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnStandardActionPerformed
-        // TODO add your handling code here:
+        
+        ModeSwitcher switcher = new ModeSwitcher();
+        
+        switcher.switchMode("soon");
+        
+        this.dispose();
+        
     }//GEN-LAST:event_mnStandardActionPerformed
 
     private void mnScientificActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnScientificActionPerformed
-        // TODO add your handling code here:
+        
+        ModeSwitcher switcher = new ModeSwitcher();
+        
+        switcher.switchMode("soon");
+        
+        this.dispose();
+        
     }//GEN-LAST:event_mnScientificActionPerformed
 
     private void mnSimpleInterestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSimpleInterestActionPerformed
-        // TODO add your handling code here:
+        
+        ModeSwitcher switcher = new ModeSwitcher();
+        
+        switcher.switchMode("soon");
+        
+        this.dispose();
+        
     }//GEN-LAST:event_mnSimpleInterestActionPerformed
 
     private void mnCompoundInterestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCompoundInterestActionPerformed
-        // TODO add your handling code here:
+        
+        ModeSwitcher switcher = new ModeSwitcher();
+        
+        switcher.switchMode("soon");
+        
+        this.dispose();
+        
     }//GEN-LAST:event_mnCompoundInterestActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
@@ -690,6 +724,26 @@ public class SimpleGUI extends javax.swing.JFrame {
         this.input = "0";
         
     }//GEN-LAST:event_btnDivideActionPerformed
+
+    private void mnConvertersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnConvertersActionPerformed
+       
+        ModeSwitcher switcher = new ModeSwitcher();
+        
+        switcher.switchMode("soon");
+        
+        this.dispose();
+        
+    }//GEN-LAST:event_mnConvertersActionPerformed
+
+    private void mnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAboutActionPerformed
+        
+        ModeSwitcher switcher = new ModeSwitcher();
+        
+        switcher.switchMode("soon");
+        
+        this.dispose();
+        
+    }//GEN-LAST:event_mnAboutActionPerformed
 
     
     /**
