@@ -276,6 +276,11 @@ public class SimpleGUI extends javax.swing.JFrame {
         });
 
         btnSubtract.setText("-");
+        btnSubtract.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubtractActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -594,6 +599,18 @@ public class SimpleGUI extends javax.swing.JFrame {
         this.input = "0";
         
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
+        
+        this.activeOperation = "subtract";
+        
+        this.simpleCalc.cumulative = new BigDecimal(txtOutput.getText());
+        
+        txtOutput.setText("0");
+        
+        this.input = "0";
+        
+    }//GEN-LAST:event_btnSubtractActionPerformed
 
     
     /**
