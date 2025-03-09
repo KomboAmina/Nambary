@@ -272,6 +272,11 @@ public class SimpleGUI extends javax.swing.JFrame {
         });
 
         btnDivide.setText("/");
+        btnDivide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivideActionPerformed(evt);
+            }
+        });
 
         btnAdd.setText("+");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -421,6 +426,8 @@ public class SimpleGUI extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         
+        this.handleInfinity();
+        
         this.input = this.input.concat("1");
         
         txtOutput.setText(new BigDecimal(this.input).toString());
@@ -428,6 +435,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        
+        this.handleInfinity();
         
         String currentValue = txtOutput.getText();
         
@@ -443,6 +452,8 @@ public class SimpleGUI extends javax.swing.JFrame {
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         
+        this.handleInfinity();
+        
         this.input = this.input.concat("2");
         
         txtOutput.setText(new BigDecimal(this.input).toString());
@@ -450,6 +461,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecimalActionPerformed
+        
+        this.handleInfinity();
         
         String currentValue = txtOutput.getText();
         
@@ -475,35 +488,48 @@ public class SimpleGUI extends javax.swing.JFrame {
             
         }
         
-        /*
+    }//GEN-LAST:event_btnDecimalActionPerformed
+
+    private void handleInfinity(){
+    
+        if(txtOutput.getText().equals("INFINITY")){
         
-        if(index == -1){
+            this.simpleCalc.cumulative = new BigDecimal("0.0");
             
-            if(currentValue.equals("0")){
+            this.simpleCalc.isInfinity = false;
             
-                this.input= this.input.concat("0");
-                
-            }
-        
-            this.input = this.input.concat(".");
+            this.input = "0";
             
-       
+            txtOutput.setText(this.input);
             
         }
         
-        txtOutput.setText(new BigDecimal(this.input).toString());*/
-        
-    }//GEN-LAST:event_btnDecimalActionPerformed
-
+    }
+    
     private void btnPerformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerformActionPerformed
+        
+        this.handleInfinity();
         
         if(!this.activeOperation.isEmpty()){
         
-            this.simpleCalc.cumulate(new BigDecimal(txtOutput.getText()),this.activeOperation);
+            this.simpleCalc.cumulate(
+                            new BigDecimal(txtOutput.getText()),
+                            this.activeOperation
+                            );
             
             this.activeOperation = "";
             
-            txtOutput.setText(simpleCalc.cumulative.toString());
+            if(this.simpleCalc.isInfinity){
+            
+                txtOutput.setText("INFINITY");
+                
+            }
+            
+            else{
+            
+                txtOutput.setText(simpleCalc.cumulative.stripTrailingZeros().toPlainString());
+                
+            }
         
             this.input = "0";
             
@@ -512,6 +538,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPerformActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        
+        this.handleInfinity();
         
         this.input = this.input.concat("3");
         
@@ -535,6 +563,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         
+        this.handleInfinity();
+        
         this.resetForm();
         
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -547,6 +577,8 @@ public class SimpleGUI extends javax.swing.JFrame {
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
        
+        this.handleInfinity();
+        
         this.input = this.input.concat("4");
        
         txtOutput.setText(new BigDecimal(this.input).toString());
@@ -554,6 +586,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        
+        this.handleInfinity();
         
         this.input = this.input.concat("5");
         
@@ -563,6 +597,8 @@ public class SimpleGUI extends javax.swing.JFrame {
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         
+        this.handleInfinity();
+        
         this.input = this.input.concat("6");
         
         txtOutput.setText(new BigDecimal(this.input).toString());
@@ -570,6 +606,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        
+        this.handleInfinity();
         
         this.input = this.input.concat("7");
         
@@ -579,6 +617,8 @@ public class SimpleGUI extends javax.swing.JFrame {
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         
+        this.handleInfinity();
+        
         this.input = this.input.concat("8");
         
         txtOutput.setText(new BigDecimal(this.input).toString());
@@ -587,6 +627,8 @@ public class SimpleGUI extends javax.swing.JFrame {
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         
+        this.handleInfinity();
+        
         this.input = this.input.concat("9");
         
         txtOutput.setText(new BigDecimal(this.input).toString());
@@ -594,6 +636,8 @@ public class SimpleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        
+        this.handleInfinity();
         
         this.activeOperation = "add";
         
@@ -607,6 +651,8 @@ public class SimpleGUI extends javax.swing.JFrame {
 
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
         
+        this.handleInfinity();
+        
         this.activeOperation = "subtract";
         
         this.simpleCalc.cumulative = new BigDecimal(txtOutput.getText());
@@ -619,6 +665,8 @@ public class SimpleGUI extends javax.swing.JFrame {
 
     private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
         
+        this.handleInfinity();
+        
         this.activeOperation = "multiply";
         
         this.simpleCalc.cumulative = new BigDecimal(txtOutput.getText());
@@ -628,6 +676,20 @@ public class SimpleGUI extends javax.swing.JFrame {
         this.input = "0";
         
     }//GEN-LAST:event_btnMultiplyActionPerformed
+
+    private void btnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivideActionPerformed
+        
+        this.handleInfinity();
+        
+        this.activeOperation = "divide";
+        
+        this.simpleCalc.cumulative = new BigDecimal(txtOutput.getText());
+        
+        txtOutput.setText("0");
+        
+        this.input = "0";
+        
+    }//GEN-LAST:event_btnDivideActionPerformed
 
     
     /**

@@ -9,6 +9,7 @@ package nambary;
  * @author Amina Kombo <github.com/KomboAmina>
  */
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class NambarySimple {
     
@@ -26,6 +27,8 @@ public class NambarySimple {
     
     public int signValue = this.DEFAULTSIGNVALUE;
     
+    public Boolean isInfinity = false;
+    
     public void clearAll(){
     
         this.clearCumulative();
@@ -33,6 +36,8 @@ public class NambarySimple {
         this.clearOperation();
         
         this.clearSignValue();
+        
+        this.clearInfinity();
         
     }
     
@@ -54,6 +59,12 @@ public class NambarySimple {
         
     }
     
+    public void clearInfinity(){
+    
+        this.isInfinity = false;
+        
+    }
+    
     public void cumulate(BigDecimal newValue, String newOperation){
         
         if(!newOperation.equals(this.operation) && 
@@ -69,7 +80,7 @@ public class NambarySimple {
     
     private BigDecimal performCumulation(BigDecimal newValue){
         
-        BigDecimal cumulation;
+        BigDecimal cumulation = new BigDecimal("1");
     
         switch(this.operation){
             
@@ -85,23 +96,49 @@ public class NambarySimple {
                 
             break;
             
-            case "multiply":
+            case "multiply": case "multiplication":
                 
                 cumulation = this.cumulative.multiply(newValue);
                 
             break;
             
-            case "divide":
+            case "divide": case "division":
                 
-                if(!newValue.equals(0)){
+                if(this.cumulative.equals(new BigDecimal(0))){
                 
-                    cumulation = this.cumulative.divide(newValue);
+                    if(newValue.equals(new BigDecimal(0))){
+                    
+                        cumulation = new BigDecimal(1);
+                        
+                    }
+                    
+                    else{
+                    
+                        cumulation = new BigDecimal(0);
+                        
+                    }
                     
                 }
                 
                 else{
+                    
+                    Long longzero = new Long("0");
+                    
+                    BigDecimal zero = BigDecimal.valueOf(longzero);
                 
-                    cumulation = this.cumulative;
+                    if(newValue.equals(zero)){
+                    
+                        cumulation = newValue;
+                        
+                        this.isInfinity = true;
+                        
+                    }
+                    
+                    else{
+                    
+                        cumulation = this.cumulative.divide(newValue,5, RoundingMode.CEILING);
+                        
+                    }
                     
                 }
                 
