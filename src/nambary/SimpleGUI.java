@@ -265,6 +265,11 @@ public class SimpleGUI extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnMultiply.setText("*");
+        btnMultiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplyActionPerformed(evt);
+            }
+        });
 
         btnDivide.setText("/");
 
@@ -611,6 +616,18 @@ public class SimpleGUI extends javax.swing.JFrame {
         this.input = "0";
         
     }//GEN-LAST:event_btnSubtractActionPerformed
+
+    private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
+        
+        this.activeOperation = "multiply";
+        
+        this.simpleCalc.cumulative = new BigDecimal(txtOutput.getText());
+        
+        txtOutput.setText("0");
+        
+        this.input = "0";
+        
+    }//GEN-LAST:event_btnMultiplyActionPerformed
 
     
     /**
